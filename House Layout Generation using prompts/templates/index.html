@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Room Layout Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Room Layout Generator</h1>
+    <form action="/" method="post">
+        <label for="room_name">Room Name:</label>
+        <input type="text" id="room_name" name="room_name" required><br>
+        <label for="width">Width:</label>
+        <input type="number" id="width" name="width" min="1" step="any" required><br>
+        <label for="height">Height:</label>
+        <input type="number" id="height" name="height" min="1" step="any" required><br>
+        <label for="direction">Direction:</label>
+        <select id="direction" name="direction" required>
+            <option value="North">North</option>
+            <option value="North east">North east</option>
+            <option value="East">East</option>
+            <option value="South east">South east</option>
+            <option value="South">South</option>
+            <option value="South west">South west</option>
+            <option value="West">West</option>
+            <option value="North west">North west</option>
+        </select><br>
+        <input type="submit" value="Add Room">
+    </form>
+    
+    <table>
+        <tr>
+            <th>Room Name</th>
+            <th>Width</th>
+            <th>Height</th>
+            <th>Direction</th>
+        </tr>
+        {% for room in room_data %}
+        <tr>
+            <td>{{ room.name }}</td>
+            <td>{{ room.width }}</td>
+            <td>{{ room.height }}</td>
+            <td>{{ room.direction }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    <form action="/generate_layout" method="post">
+        <input type="submit" value="Generate Layout">
+    </form>
+</body>
+</html>

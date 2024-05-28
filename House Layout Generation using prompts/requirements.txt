@@ -1,0 +1,6 @@
+streamlit
+PIL
+google-generativeai
+python-dotenv
+matplotlib
+re

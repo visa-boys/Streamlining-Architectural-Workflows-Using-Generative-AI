@@ -1,0 +1,10 @@
+You will be given a prompt that is used to describe a house layout, but you need to do the following:
+    Identify the various rooms involved, the direction in which the room is present, dimension of each room and how one room is connected to one and another
+    Your output should be only in the following pattern:
+    Room: <Room name>
+    Dimension: <a x b sq m> where a is the width of the room and b is length of the room
+    Direction: <direction should be only one among ["north","south","east","west","northeast","northwest","southeast","southwest"]
+    \n\n
+    <Room name> has been added successfully!!
+    \n
+    User Prompt:
